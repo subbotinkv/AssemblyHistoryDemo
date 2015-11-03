@@ -8,6 +8,6 @@ namespace AssemblyHistoryApp.DAL
 
         public string Name { get; set; }
 
-        public IEnumerable<AssemblyHistoryEntity> Details { get; set; }
+        public virtual ICollection<AssemblyHistoryEntity> Details { get; protected set; }
     }
 }

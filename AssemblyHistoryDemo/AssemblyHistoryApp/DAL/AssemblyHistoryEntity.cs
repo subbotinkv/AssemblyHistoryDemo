@@ -6,7 +6,9 @@ namespace AssemblyHistoryApp.DAL
     {
         public int Id { get; set; }
 
-        public AssemblyEntity AssemblyEntity { get; set; }
+        public virtual AssemblyEntity AssemblyEntity { get; set; }
+
+        public int AssembyEntityId { get; set; }
 
         public HistoryEntityType HistoryEntityType { get; set; }
 
