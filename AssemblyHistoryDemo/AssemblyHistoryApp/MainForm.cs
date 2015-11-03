@@ -1,6 +1,8 @@
 ﻿namespace AssemblyHistoryApp
 {
     using System;
+    using System.Data.Entity;
+    using System.Linq;
     using System.Reflection;
     using System.Windows.Forms;
 
@@ -11,6 +13,14 @@
         public MainForm()
         {
             InitializeComponent();
+            
+            // Поддержка EF-детейлов для GridControl.
+            assembliesGridView.DataController.AllowIEnumerableDetails = true;
+            
+            // Связывание.
+            var dbContext = new AssemblyHistoryContext();
+            dbContext.Assemblies.Include(a => a.Members.Select(b => b.Annotations)).Load();
+            assembliesBindingSource.DataSource = dbContext.Assemblies.Local.ToBindingList();
         }
 
         private void OpenToolStripMenuItemClick(object sender, EventArgs e)
