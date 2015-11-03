@@ -4,6 +4,9 @@ namespace AssemblyHistoryApp.DAL
     using System.Collections.Generic;
     using System.Reflection;
 
+    /// <summary>
+    /// Сущность для хранения в БД информации о членах сборки - классах, методах, ...
+    /// </summary>
     public class AssemblyMemberEntity
     {
         public AssemblyMemberEntity()

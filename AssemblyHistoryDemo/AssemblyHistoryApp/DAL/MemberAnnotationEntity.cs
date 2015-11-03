@@ -4,6 +4,9 @@ namespace AssemblyHistoryApp.DAL
 
     using Common;
 
+    /// <summary>
+    /// Сущность для хранения в БД информации о найденных аннотациях.
+    /// </summary>
     public class MemberAnnotationEntity
     {
         public MemberAnnotationEntity()
