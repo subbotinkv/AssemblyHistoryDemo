@@ -7,12 +7,12 @@
     {
         public HistoryAttribute(string dateTime, string author, string description)
         {
-            DateTime = dateTime;
+            DateTime = DateTime.Parse(dateTime);
             Author = author;
             Description = description;
         }
 
-        public string DateTime { get; }
+        public DateTime DateTime { get; }
 
         public string Author { get; }
 

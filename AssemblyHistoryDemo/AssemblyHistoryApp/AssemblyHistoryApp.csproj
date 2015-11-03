@@ -57,11 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyHelper.cs" />
+    <Compile Include="DAL\AssemblyMemberEntity.cs" />
+    <Compile Include="DAL\MemberAnnotationEntity.cs" />
     <Compile Include="DAL\AssemblyEntity.cs" />
-    <Compile Include="DAL\AssemblyHistoryModel.cs" />
-    <Compile Include="DAL\AssemblyHistoryEntity.cs" />
-    <Compile Include="DAL\HistoryEntityType.cs" />
+    <Compile Include="DAL\AssemblyHistoryContext.cs" />
+    <Compile Include="HistoryExtractor.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -25,23 +25,21 @@
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(
-                        "Возникла ошибка при загрузке сборки. Попробуйте загрузить другую сборку.",
-                        "Ошибка",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show("Возникла ошибка при загрузке сборки. Попробуйте загрузить другую сборку.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // Если удалось загрузить сборку, то обрабатываем ее.
                 if (assembly != null)
                 {
-                    using (var model = new AssemblyHistoryModel())
+                    using (var context = new AssemblyHistoryContext())
                     {
-                        // Обработаем содержимое сборки.
-                        AssemblyHelper.ProcessAssembly(assembly, model);
+                        var historyExtractor = new HistoryExtractor(context);
 
-                        // Сохраним результат.
-                        model.SaveChanges();
+                        historyExtractor.ExtractFromAssembly(assembly);
+
+                        int changes = context.SaveChanges();
+
+                        MessageBox.Show($"Добавлено {changes} записей");
                     }
                 }
             }
