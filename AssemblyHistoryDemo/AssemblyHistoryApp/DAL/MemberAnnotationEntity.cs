@@ -1,7 +1,7 @@
 namespace AssemblyHistoryApp.DAL
 {
     using System;
-
+    using System.ComponentModel.DataAnnotations;
     using Common;
 
     /// <summary>
@@ -36,8 +36,11 @@ namespace AssemblyHistoryApp.DAL
 
         public DateTime DateTime { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string Author { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
         public int MemberId { get; set; }

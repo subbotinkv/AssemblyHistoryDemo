@@ -2,6 +2,7 @@ namespace AssemblyHistoryApp.DAL
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Reflection;
 
     /// <summary>
@@ -26,6 +27,8 @@ namespace AssemblyHistoryApp.DAL
 
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(1000)]
         public string Name { get; set; }
 
         public ICollection<AssemblyMemberEntity> Members { get; set; }
